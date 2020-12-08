@@ -1,0 +1,10 @@
+<div class="todo-list">
+
+    <ul>
+      <ng-container *ngFor="let todo of todos" >
+        <li *ngIf="todo.priorite === filtrePriorite || filtrePriorite === 0">
+          {{ todo.title }} {{ todo.priorite }}
+        </li>
+      </ng-container>
+    </ul>
+  </div>

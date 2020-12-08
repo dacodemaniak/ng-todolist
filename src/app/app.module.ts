@@ -5,12 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TitleComponent } from './components/title/title.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { TodoListComponent } from './components/todo-list/todo-list.component';
+import { FilterBarComponent } from './components/filter-bar/filter-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TitleComponent,
-    FooterComponent
+    FooterComponent,
+    TodoListComponent,
+    FilterBarComponent
   ],
   imports: [
     BrowserModule,

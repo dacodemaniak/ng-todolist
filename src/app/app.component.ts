@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ng-todolist';
+  
+  public titleObject = {
+    title: 'Fun TodoList',
+    subTitle: 'Another Todo List',
+    introTitle: 'All start with Todo'
+  };
 }

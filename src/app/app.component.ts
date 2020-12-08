@@ -48,7 +48,7 @@ export class AppComponent {
     );
   }
 
-  public setPriorite(priorite: number): void {
+  public receiveFilter(priorite: number): void {
     this.filtrePriorite = priorite;
   }
 }

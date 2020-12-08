@@ -1,14 +1,14 @@
 <div class="filter-bar">
-    <button type="button" (click)="filtrePriorite = 0">
+    <button [disabled]="filtrePriorite === 0" type="button" (click)="emitFilterEvent(0)">
       Voir tout
     </button>
-    <button type="button" (click)="filtrePriorite = 1">
+    <button [disabled]="filtrePriorite === 1" type="button" (click)="emitFilterEvent(1)">
       Priorité 1
     </button>
-    <button type="button" (click)="filtrePriorite = 2">
+    <button [disabled]="filtrePriorite === 2" type="button" (click)="emitFilterEvent(2)">
       Priorité 2
     </button>
-    <button type="button" (click)="filtrePriorite = 3">
+    <button [disabled]="filtrePriorite === 3" type="button" (click)="emitFilterEvent(3)">
       Priorité 3
     </button>
   </div>

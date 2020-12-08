@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent implements OnInit {
-  public filtrePriorite: number = 0;
+  @Input() public filtrePriorite: number = 0;
   @Input() public todos: any[] = [];
 
   constructor() { }

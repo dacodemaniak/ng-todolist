@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-filter-bar',
@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./filter-bar.component.scss']
 })
 export class FilterBarComponent implements OnInit {
-  public filtrePriorite: number = 0;
+  @Input() public filtrePriorite: number = 0;
+  @Output() public filterEvent: EventEmitter<number> = new EventEmitter();
+  
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public emitFilterEvent(filter: number): void {
+    this.filterEvent.emit(filter);
   }
 
 }

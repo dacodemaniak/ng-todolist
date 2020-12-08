@@ -4,8 +4,8 @@
 <app-title [titleObject]="titleObject"></app-title>
 
 <div class="todo-wrapper">
-  <app-filter-bar></app-filter-bar>
-  <app-todo-list [todos]="todos"></app-todo-list>
+  <app-filter-bar [filtrePriorite]="filtrePriorite" (filterEvent)="receiveFilter($event)"></app-filter-bar>
+  <app-todo-list [todos]="todos" [filtrePriorite]="filtrePriorite"></app-todo-list>
 </div>
 <!--
   - Refers to component/footer

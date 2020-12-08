@@ -1,6 +1,9 @@
 <header>
     <h1>{{ titleObject.title }}</h1>
     <h2>{{ titleObject.subTitle }}</h2>
+    <div>
+        User : {{ userService.getUsername() }}
+    </div>
 </header>
 <blockquote>
     {{ titleObject.introTitle }}

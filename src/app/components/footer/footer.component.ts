@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-footer',
@@ -8,9 +9,13 @@ import { Component, Input, OnInit } from '@angular/core';
 export class FooterComponent implements OnInit {
   @Input() public titleObject;
 
-  constructor() { }
 
-  ngOnInit(): void {
+  constructor(public userService: UserService) { }
+
+  ngOnInit(): void {}
+
+  public updateUser(): void {
+    this.userService.setUsername('New name');
   }
 
 }

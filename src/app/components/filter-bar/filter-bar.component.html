@@ -1,14 +1,14 @@
 <div class="filter-bar">
-    <button [disabled]="filtrePriorite === 0" type="button" (click)="emitFilterEvent(0)">
+    <button [disabled]="todoService.priorite === 0" type="button" (click)="todoService.priorite = 0">
       Voir tout
     </button>
-    <button [disabled]="filtrePriorite === 1" type="button" (click)="emitFilterEvent(1)">
+    <button [disabled]="todoService.priorite === 1" type="button" (click)="todoService.priorite = 1">
       Priorité 1
     </button>
-    <button [disabled]="filtrePriorite === 2" type="button" (click)="emitFilterEvent(2)">
+    <button [disabled]="todoService.priorite === 2" type="button" (click)="todoService.priorite = 2">
       Priorité 2
     </button>
-    <button [disabled]="filtrePriorite === 3" type="button" (click)="emitFilterEvent(3)">
+    <button [disabled]="todoService.priorite === 3" type="button" (click)="todoService.priorite = 3">
       Priorité 3
     </button>
   </div>

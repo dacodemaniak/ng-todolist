@@ -1,3 +1,5 @@
 <footer>
     <p>{{ titleObject.title }}</p>
+    <cite>{{ this.userService.getUsername() }}</cite>
+    <button type="button" (click)="updateUser()">Update</button>
 </footer>

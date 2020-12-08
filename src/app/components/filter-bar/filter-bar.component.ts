@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
   selector: 'app-filter-bar',
@@ -6,16 +7,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./filter-bar.component.scss']
 })
 export class FilterBarComponent implements OnInit {
-  @Input() public filtrePriorite: number = 0;
-  @Output() public filterEvent: EventEmitter<number> = new EventEmitter();
-  
-  constructor() { }
+
+  constructor(public todoService: TodoService) { }
 
   ngOnInit(): void {
-  }
-
-  public emitFilterEvent(filter: number): void {
-    this.filterEvent.emit(filter);
   }
 
 }

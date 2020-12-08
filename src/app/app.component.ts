@@ -13,42 +13,6 @@ export class AppComponent {
     introTitle: 'All start with Todo'
   };
 
-  /**
-   * @var any[]
-   * Tableau contenant les todos
-   */
-  public todos: any[] = [];
+  public constructor() {}
 
-  public filtrePriorite: number = 0;
-
-  public constructor() {
-    this.todos.push(
-      {
-        id: 1,
-        title: 'Todo 1',
-        dateDebut: new Date(),
-        priorite: 1
-      }
-    );
-    this.todos.push(
-      {
-        id: 2,
-        title: 'Todo 2',
-        dateDebut: new Date(),
-        priorite: 1
-      }
-    );
-    this.todos.push(
-      {
-        id: 3,
-        title: 'Todo 3',
-        dateDebut: new Date(),
-        priorite: 3
-      }
-    );
-  }
-
-  public receiveFilter(priorite: number): void {
-    this.filtrePriorite = priorite;
-  }
 }

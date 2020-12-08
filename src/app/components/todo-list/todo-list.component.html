@@ -1,10 +1,19 @@
 <div class="todo-list">
 
-    <ul>
-      <ng-container *ngFor="let todo of todos" >
-        <li *ngIf="todo.priorite === filtrePriorite || filtrePriorite === 0">
-          {{ todo.title }} {{ todo.priorite }}
-        </li>
-      </ng-container>
-    </ul>
+    <ng-container *ngIf="todoService.todos.length else noTodo">
+      <ul>
+        <ng-container *ngFor="let todo of todoService.todos" >
+          <li *ngIf="todo.priorite === todoService.priorite || todoService.priorite === 0">
+            {{ todo.title }} {{ todo.priorite }}
+          </li>
+        </ng-container>
+      </ul>
+    </ng-container>
   </div>
+
+  <ng-template #noTodo>
+    <div class="no-todo">
+      Désolé, aucun todo dans votre liste
+    </div>
+  </ng-template>
+

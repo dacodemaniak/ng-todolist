@@ -1,10 +1,11 @@
 import { Injectable, OnInit } from '@angular/core';
+import { TodoInterface } from '../models/todo-interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoService {
-  private _todos: any[] = [];
+  private _todos: TodoInterface[] = [];
   private filtrePriorite: number = 0;
 
   constructor() {
@@ -13,10 +14,10 @@ export class TodoService {
         id: 1,
         title: 'Todo 1',
         dateDebut: new Date(),
-        priorite: 1
+        priorite: 1,
       }
     );
-    this.todos.push(
+    this._todos.push(
       {
         id: 2,
         title: 'Todo 2',
@@ -24,17 +25,17 @@ export class TodoService {
         priorite: 1
       }
     );
-    this.todos.push(
+    this._todos.push(
       {
+        priorite: 3,
         id: 3,
         title: 'Todo 3',
         dateDebut: new Date(),
-        priorite: 3
       }
     );
   }
 
-  public get todos(): any[] {
+  public get todos(): TodoInterface[] {
     return this._todos;
   }
 

@@ -1,5 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { TodoInterface } from '../models/todo-interface';
+import { TodoModel } from '../models/todo-model';
 
 @Injectable({
   providedIn: 'root'
@@ -47,6 +48,13 @@ export class TodoService {
     return this.filtrePriorite;
   }
   
+  public add(todoFormData: any): void {
+    const todo: TodoInterface = new TodoModel().deserialize(todoFormData);
+    todo.id = this._todos.length + 1;
+    this._todos.push(todo);
+    console.log(JSON.stringify(this._todos));
+  }
+
   public filterNumber(): boolean {
     if (this._todos.length === 0) {
       return false;

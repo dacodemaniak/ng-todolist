@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import * as moment from 'moment';
+import { TodoService } from 'src/app/services/todo.service';
 @Component({
   selector: 'app-add-todo',
   templateUrl: './add-todo.component.html',
@@ -11,7 +13,9 @@ export class AddTodoComponent implements OnInit {
   public todoForm: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private todoService: TodoService,
+    private router: Router
   ) { }
 
   public get title(): AbstractControl {
@@ -32,6 +36,12 @@ export class AddTodoComponent implements OnInit {
 
   public getControl(control: string): AbstractControl {
     return this.todoForm.controls[control];
+  }
+
+  public onSubmit(): void {
+    this.todoService.add(this.todoForm.value);
+    this.router.navigate(['/home']);
+
   }
 
   ngOnInit(): void {

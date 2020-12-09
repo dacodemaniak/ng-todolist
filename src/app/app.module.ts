@@ -12,7 +12,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UiModule } from './shared/ui/ui.module';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { ElapsedPipe } from './pipes/elapsed.pipe';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,13 +22,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     TodoListComponent,
     FilterBarComponent,
     AddTodoComponent,
-    HomeComponent
+    HomeComponent,
+    ElapsedPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     UiModule
   ],
   providers: [],

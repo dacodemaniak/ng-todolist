@@ -4,7 +4,7 @@
       <ul>
         <ng-container *ngFor="let todo of todoService.todos" >
           <li *ngIf="todo.priorite === todoService.priorite || todoService.priorite === 0">
-            {{ todo.title }} {{ todo.priorite }}
+            {{ todo.title }} {{ todo.priorite }} {{ todo.dateDebut | elapsed | async }}
           </li>
         </ng-container>
       </ul>

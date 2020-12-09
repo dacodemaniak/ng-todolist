@@ -3,7 +3,7 @@ import { Injectable, OnInit } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class TodoService implements OnInit {
+export class TodoService {
   private _todos: any[] = [];
   private filtrePriorite: number = 0;
 
@@ -45,5 +45,14 @@ export class TodoService implements OnInit {
   public get priorite(): number {
     return this.filtrePriorite;
   }
-  public ngOnInit() {}
+  
+  public filterNumber(): boolean {
+    if (this._todos.length === 0) {
+      return false;
+    }
+
+    return this.filtrePriorite !== 0 ? 
+      this.todos.filter((obj: any) => obj.priorite === this.filtrePriorite).length > 0 
+      : true;
+  }
 }

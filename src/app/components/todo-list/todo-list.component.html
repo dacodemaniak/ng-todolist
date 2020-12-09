@@ -1,6 +1,6 @@
 <div class="todo-list">
 
-    <ng-container *ngIf="todoService.todos.length else noTodo">
+    <ng-container *ngIf="todoService.filterNumber() else noTodo">
       <ul>
         <ng-container *ngFor="let todo of todoService.todos" >
           <li *ngIf="todo.priorite === todoService.priorite || todoService.priorite === 0">

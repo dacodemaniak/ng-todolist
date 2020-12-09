@@ -10,6 +10,8 @@ import { FilterBarComponent } from './components/filter-bar/filter-bar.component
 import { AddTodoComponent } from './pages/add-todo/add-todo.component';
 import { HomeComponent } from './pages/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UiModule } from './shared/ui/ui.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    UiModule
   ],
   providers: [],
   bootstrap: [AppComponent]

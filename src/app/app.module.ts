@@ -9,6 +9,7 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { FilterBarComponent } from './components/filter-bar/filter-bar.component';
 import { AddTodoComponent } from './pages/add-todo/add-todo.component';
 import { HomeComponent } from './pages/home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HomeComponent } from './pages/home/home.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

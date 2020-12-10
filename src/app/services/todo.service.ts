@@ -22,7 +22,7 @@ export class TodoService {
       {
         id: 2,
         title: 'Todo 2',
-        dateDebut: new Date(),
+        dateDebut: new Date('2020-12-11'),
         priorite: 1
       }
     );
@@ -31,7 +31,7 @@ export class TodoService {
         priorite: 3,
         id: 3,
         title: 'Todo 3',
-        dateDebut: new Date(),
+        dateDebut: new Date('2020-12-20'),
       }
     );
   }
@@ -53,6 +53,14 @@ export class TodoService {
     todo.id = this._todos.length + 1;
     this._todos.push(todo);
     console.log(JSON.stringify(this._todos));
+  }
+
+  public get(id: number): TodoInterface {
+    return this._todos.find(
+      (obj: TodoInterface) => {
+        return obj.id === id
+      }
+    );
   }
 
   public filterNumber(): boolean {

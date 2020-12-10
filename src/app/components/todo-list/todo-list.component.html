@@ -5,6 +5,7 @@
         <ng-container *ngFor="let todo of todoService.todos" >
           <li *ngIf="todo.priorite === todoService.priorite || todoService.priorite === 0">
             {{ todo.title }} {{ todo.priorite }} {{ todo.dateDebut | elapsed | async }}
+            <button type="button" (click)="goToDetail(todo.id)">Détail</button>
           </li>
         </ng-container>
       </ul>

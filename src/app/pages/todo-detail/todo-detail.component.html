@@ -1,0 +1,11 @@
+<div *ngIf="todo else loadingTemplate">
+    <h1>{{ todo.title }} [{{ todo.id }}]</h1>
+    <blockquote>{{ todo.dateDebut | elapsed | async }}</blockquote>
+    <p>Priorité : {{ todo.priorite }}</p>
+</div>
+
+<a routerLink="/home">Retour à la liste</a>
+
+<ng-template #loadingTemplate>
+    Chargement en cours...
+</ng-template>

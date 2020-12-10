@@ -14,6 +14,7 @@ import { UiModule } from './shared/ui/ui.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ElapsedPipe } from './pipes/elapsed.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { TodoDetailComponent } from './pages/todo-detail/todo-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     FilterBarComponent,
     AddTodoComponent,
     HomeComponent,
-    ElapsedPipe
+    ElapsedPipe,
+    TodoDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -16,6 +16,7 @@ import { ElapsedPipe } from './pipes/elapsed.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { TodoDetailComponent } from './pages/todo-detail/todo-detail.component';
 import { fakeBackendProvider } from './shared/helpers/fake-backend.service';
+import { UpdateTodoComponent } from './pages/update-todo/update-todo.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { fakeBackendProvider } from './shared/helpers/fake-backend.service';
     AddTodoComponent,
     HomeComponent,
     ElapsedPipe,
-    TodoDetailComponent
+    TodoDetailComponent,
+    UpdateTodoComponent
   ],
   imports: [
     BrowserModule,

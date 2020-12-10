@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AddTodoComponent } from './pages/add-todo/add-todo.component';
 import { HomeComponent } from './pages/home/home.component';
 import { TodoDetailComponent } from './pages/todo-detail/todo-detail.component';
+import { UpdateTodoComponent } from './pages/update-todo/update-todo.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'add',
     component: AddTodoComponent
+  },
+  {
+    path: 'update/:id',
+    component: UpdateTodoComponent
   },
   {
     path: 'detail/:id',

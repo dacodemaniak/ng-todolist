@@ -3,9 +3,10 @@
     <ng-container *ngIf="todos$ else noTodo">
       <ul>
         <ng-container *ngFor="let todo of (todos$ | async)" >
-          <li>
-            {{ todo.title }} {{ todo.priorite }}
+          <li *ngIf="todo.priorite === todoService.priorite || todoService.priorite === 0">
+            {{ todo.title }} {{ todo.priorite }} {{ todo.dateDebut | elapsed | async }}
             <button type="button" (click)="goToDetail(todo.id)">Détail</button>
+            <button type="button" (click)="update(todo.id)">Mettre à jour</button>
           </li>
         </ng-container>
       </ul>

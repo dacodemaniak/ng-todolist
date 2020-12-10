@@ -38,6 +38,13 @@ export class TodoService {
     ).subscribe();
   }
 
+  public update(todoFormData: any): any {
+    this.httpClient.put(
+      'http://localhost:4200/api/v2/todo/' + todoFormData.id,
+      todoFormData
+    ).subscribe();
+  }
+
   public get(id: number): Observable<TodoInterface> {
     return this.httpClient.get<TodoInterface>(
       'http://localhost:4200/api/v2/todo/' + id

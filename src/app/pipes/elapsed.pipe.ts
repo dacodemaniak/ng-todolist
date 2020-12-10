@@ -26,6 +26,9 @@ export class ElapsedPipe implements PipeTransform {
         } else {
           resolve(`Aujourd'hui`);
         }
+      }, (error) => {
+        console.log(`${error}`)
+        resolve('Data not available');
       })
     });
 

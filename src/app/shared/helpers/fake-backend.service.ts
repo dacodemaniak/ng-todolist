@@ -54,6 +54,8 @@ export class FakeBackendService implements HttpInterceptor {
           return addTodo(request);
         case todoFindRegex.test(url) && method === 'GET':
           return getTodo();
+        case todoFindRegex.test(url) && method === 'PUT':
+            return updateTodo(body);
         default:
           return next.handle(request);
       }
@@ -66,6 +68,14 @@ export class FakeBackendService implements HttpInterceptor {
         // Persister le tableau entier
         localStorage.setItem('todos', JSON.stringify(todos));
         // Retourner l'observable du User créé
+        return ok(todo);
+      }
+
+      function updateTodo(body: any): Observable<HttpResponse<any>> {
+        const todo: TodoInterface = new TodoModel().deserialize(body);
+        const index: number = todos.findIndex((obj: TodoInterface) => obj.id === todo.id);
+        todos[index] = todo;
+        localStorage.setItem('todos', JSON.stringify(todos));
         return ok(todo);
       }
 

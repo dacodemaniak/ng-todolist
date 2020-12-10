@@ -1,0 +1,42 @@
+<form *ngIf="todoForm else waitTemplate" [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+        <input matInput type="text" placeholder="Todo..." formControlName="title">
+        <mat-error>
+            <span *ngIf="c.title.hasError('minlength') && c.title.dirty">
+                Au minimum 5 caractères
+            </span>
+            <span *ngIf="c.title.hasError('required') && c.title.touched">
+                Le champ est requis
+            </span>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput type="date" placeholder="Date..." formControlName="dateDebut">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput type="number" min="1" max="3" placeholder="Priorité..." formControlName="priorite">
+        <mat-error *ngIf="c.priorite.errors && c.priorite.dirty">
+            <span *ngIf="c.priorite.hasError('required')">
+                La priorité est requise.
+            </span>
+            <span *ngIf="c.priorite.hasError('min')">
+                La priorité ne peut pas être inférieure à 1
+            </span>
+            <span *ngIf="c.priorite.hasError('max')">
+                La priorité ne peut pas être supérieure à 3
+            </span>
+        </mat-error>
+    </mat-form-field>
+
+    <input type="hidden" formControlName="id">
+
+    <button [disabled]="todoForm.invalid" mat-button color="primary">
+        Mettre à jour
+    </button>
+</form>
+
+<ng-template #waitTemplate>
+    <mat-spinner></mat-spinner>
+</ng-template>

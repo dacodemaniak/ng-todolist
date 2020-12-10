@@ -13,7 +13,7 @@ export class TodoListComponent implements OnInit {
   public todos$: Observable<TodoInterface[]>;
 
   constructor(
-    private todoService: TodoService,
+    public todoService: TodoService,
     private router: Router
   ) { }
 
@@ -21,6 +21,10 @@ export class TodoListComponent implements OnInit {
     this.router.navigate(['/', 'detail', id ]);
   }
 
+  public update(id: number): void {
+    this.router.navigate(['/', 'update', id]);
+  }
+  
   ngOnInit(): void {
     this.todos$ = this.todoService.getTodos();
   }

@@ -48,6 +48,8 @@ export class FakeBackendService implements HttpInterceptor {
       const todoFindRegex: RegExp = /\/api\/v2\/todo\/\d+$/;
 
       switch (true) {
+        case todoRegex.test(url) && method === 'GET':
+          return getTodos();
         case todoRegex.test(url) && method === 'POST':
           return addTodo(request);
         case todoFindRegex.test(url) && method === 'GET':
@@ -62,7 +64,7 @@ export class FakeBackendService implements HttpInterceptor {
         todo.id = todos.length + 1;
         todos.push(todo);
         // Persister le tableau entier
-        localStorage.setItem('todos', JSON.stringify(todo));
+        localStorage.setItem('todos', JSON.stringify(todos));
         // Retourner l'observable du User créé
         return ok(todo);
       }
@@ -77,6 +79,11 @@ export class FakeBackendService implements HttpInterceptor {
         console.log(`Todo was found, return 200`);
         return ok(todo);
       }
+
+      function getTodos():Observable<HttpResponse<any>> {
+        return ok(todos);
+      }
+
       // helper functions
 
       function ok(body?: any): Observable<HttpResponse<any>> {
@@ -84,7 +91,7 @@ export class FakeBackendService implements HttpInterceptor {
       }
 
       function notFound(): Observable<HttpResponse<any>> {
-        return of(new HttpResponse({status: 409}));
+        return of(new HttpResponse({status: 404}));
       }
 
       function error(message): Observable<never> {

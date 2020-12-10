@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { TodoInterface } from 'src/app/models/todo-interface';
 import { TodoService } from 'src/app/services/todo.service';
 
@@ -12,7 +12,7 @@ import { TodoService } from 'src/app/services/todo.service';
 export class TodoDetailComponent implements OnInit, OnDestroy, AfterViewInit {
   private paramSubscription$: Subscription;
 
-  public todo: TodoInterface = null;
+  public todo$: Observable<TodoInterface>;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -23,8 +23,7 @@ export class TodoDetailComponent implements OnInit, OnDestroy, AfterViewInit {
     this.paramSubscription$  = this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       const id: any = paramMap.get('id');
       console.log(`Via subscription : ${id}`);
-      this.todo = this.todoService.get(+id);
-      console.log(`Todo was found : ${JSON.stringify(this.todo)}`);
+      this.todo$ = this.todoService.get(+id);
     });
 
     console.log('Je continue à exécuter...');

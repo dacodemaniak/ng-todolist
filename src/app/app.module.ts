@@ -15,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ElapsedPipe } from './pipes/elapsed.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { TodoDetailComponent } from './pages/todo-detail/todo-detail.component';
+import { fakeBackendProvider } from './shared/helpers/fake-backend.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,9 @@ import { TodoDetailComponent } from './pages/todo-detail/todo-detail.component';
     HttpClientModule,
     UiModule
   ],
-  providers: [],
+  providers: [
+    fakeBackendProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

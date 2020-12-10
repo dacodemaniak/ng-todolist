@@ -1,4 +1,4 @@
-<div *ngIf="todo else loadingTemplate">
+<div *ngIf="(todo$ | async) as todo else loadingTemplate">
     <h1>{{ todo.title }} [{{ todo.id }}]</h1>
     <blockquote>{{ todo.dateDebut | elapsed | async }}</blockquote>
     <p>Priorité : {{ todo.priorite }}</p>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { TodoInterface } from 'src/app/models/todo-interface';
 import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
@@ -8,9 +10,10 @@ import { TodoService } from 'src/app/services/todo.service';
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent implements OnInit {
+  public todos$: Observable<TodoInterface[]>;
 
   constructor(
-    public todoService: TodoService,
+    private todoService: TodoService,
     private router: Router
   ) { }
 
@@ -19,6 +22,7 @@ export class TodoListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.todos$ = this.todoService.getTodos();
   }
 
 }
